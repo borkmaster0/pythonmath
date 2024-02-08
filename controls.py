@@ -1,9 +1,11 @@
 from math_lib import *
 
 # Various Control Functions
-class Controls:
-    
-    def getType(self, thing): # Get the type of the input.
+
+def emptyList(list: list): # Check if there is a empty list.
+        return True if len(list) == 0 else False
+
+def getType(thing): # Get the type of the input.
         x = type(thing)
         if x is str:
             return 'str'
@@ -36,10 +38,7 @@ class Controls:
         else:
             return 'NoneType'
 
-    def emptyList(self, list: list): # Check if there is a empty list.
-        return True if len(list) == 0 else False
-
-    def IF(self, boolean: bool, ifTrue, ifFalse): # If function
+def IF(boolean: bool, ifTrue, ifFalse): # If function
         if boolean:
             return ifTrue
         else:
