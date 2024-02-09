@@ -52,7 +52,7 @@ def divWithRem(num1: int, num2: int): # Divides the numbers and reports the rema
 
 def gcf(num1: int, num2: int): # Finds the GCF of 2 numbers.
     from sets import setOps
-    return list(setOps(self.factor(num1), self.factor(num2), 'intersection'))[-1]
+    return list(setOps(factor(num1), factor(num2), 'intersection'))[-1]
 
 def lcm(num1: int, num2: int): # Finds the LCM of 2 numbers.
     from number import gcf
@@ -68,3 +68,7 @@ def logBase(num: float, base: float): # Log with base.
     if (num <= 0) or (base < 0):
         return 'Error'
     return (log(num) / log(base))
+
+def isBetween(num: float, low: float, high: float): # Check if number is between
+    return (low < num) and (num < high)
+

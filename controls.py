@@ -43,3 +43,10 @@ def IF(boolean: bool, ifTrue, ifFalse): # If function
             return ifTrue
         else:
             return ifFalse
+
+def join(textList: list):
+    a = ''
+    for i in range(0, len(textList) - 1):
+        a = str(textList[i]) + str(textList[i + 1])
+    return a
+

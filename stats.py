@@ -101,3 +101,114 @@ def variance(type: str, list: list): # Find the standard variance of the given d
         return c / (len(list) - 1)
     else:
         return c / len(list)
+
+def median(list: list):
+    from controls import emptyList
+    from number import even
+    if emptyList(list):
+        return ValueError('Empty list')
+    sortedList = sorted(list)
+    
+    n = len(list)
+    c = []
+    d = n / 2
+    
+    if even(n):
+        c.append(list[d])
+        c.append(list[d + 1])
+        return (sum(c) / 2)
+    else:
+        c.append(list[ceil(d)])
+        return c[0]
+
+def distribution(list: list):
+    d = {}
+    for i in list:
+        if d.get(i):
+            d[i] += 1
+        else:
+            d[i] = 1
+    return d
+
+def midrange(list: list):
+    a = sorted(list)
+    return ((a[0] + a[-1]) / 2)
+
+def quartiles(list: list, fancyOut: bool):
+    from controls import join
+    med = median(list)
+    length = len(list)
+    sort = sorted(list)
+    q1, q3 = []
+    for i in range(0, ((length / 2) + 1)):
+        q1.append(sort[i])
+    for k in range(length, ((length / 2) + 1)):
+        q3.append(sort[k])
+    q1 = median(q1)
+    q2 = median(sort)
+    q3 = median(q3)
+    if fancyOut:    
+        return join(['Q1: ', sort[0], '-', q1, '\nl', 'Q2: ', q1, '-', q2, '\nl', 'Q3: ', q2, '-', q3, '\nl', 'Q4: ', q3, '-', sort[-1]])
+    else:
+        return [sort[0], q1, q2, q3, sort[-1]]
+
+def iqr(list: list):
+    from controls import join
+    med = median(list)
+    length = len(list)
+    sort = sorted(list)
+    q1, q3 = []
+    for i in range(0, ((length / 2) + 1)):
+        q1.append(sort[i])
+    for k in range(length, ((length / 2) + 1)):
+        q3.append(sort[k])
+    q1 = median(q1)
+    q3 = median(q3)
+    return q3 - q1
+
+def fence(list: list):
+    a = quartiles(list, False)
+    q1 = a[1]
+    q3 = a[3]
+    i = iqr(list)
+    lower = q1 - (i * 1.5)
+    upper = q3 + (i * 1.5)
+    return [lower, upper]
+
+def outliers(list: list):
+    from number import isBetween
+    from controls import emptyList
+    a = fence(list)
+    lower = a[0]
+    upper = a[1]
+    outliers = []
+    for i in range(len(list)):
+        if not(isBetween(list[i], lower, upper)):
+            outliers.append(list[i])
+    if emptyList(outliers):
+        return None
+    else:
+        return outliers
+
+def sumOfSquares(list: list):
+    from controls import emptyList
+    if emptyList(list):
+        ValueError('Empty list')
+    mean = average(list)
+    a = []
+    for i in range(0, len(list)):
+        a.append((list[i] - mean) ** 2)
+    return sum(a)
+
+def mad(list: list):
+    from controls import emptyList
+    if emptyList(list):
+        ValueError('Empty list')
+    n = len(list)
+    mean = average(list)
+    a = []
+    for i in range(0, n):
+        a.append(abs(list[i] - mean))
+    a = sum(a)
+    return a / n
+
