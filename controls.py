@@ -1,4 +1,4 @@
-from math_lib import *
+from number import *
 
 # Various Control Functions
 
