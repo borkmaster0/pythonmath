@@ -69,6 +69,6 @@ def logBase(num: float, base: float): # Log with base.
         return 'Error'
     return (log(num) / log(base))
 
-def isBetween(num: float, low: float, high: float): # Check if number is between
+def isBetween(num: float, low: float, high: float): # Check if number is between 2 numbers
     return (low < num) and (num < high)
 

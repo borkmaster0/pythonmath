@@ -44,9 +44,9 @@ def IF(boolean: bool, ifTrue, ifFalse): # If function
         else:
             return ifFalse
 
-def join(textList: list):
+def join(textList: list): # Joins every element of the list together
     a = ''
-    for i in range(0, len(textList) - 1):
-        a = str(textList[i]) + str(textList[i + 1])
+    for i in range(0, len(textList)):
+        a = str(textList[i])
     return a
 

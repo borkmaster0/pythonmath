@@ -102,7 +102,7 @@ def variance(type: str, list: list): # Find the standard variance of the given d
     else:
         return c / len(list)
 
-def median(list: list):
+def median(list: list): # Find the median of the list
     from controls import emptyList
     from number import even
     if emptyList(list):
@@ -121,7 +121,7 @@ def median(list: list):
         c.append(list[ceil(d)])
         return c[0]
 
-def distribution(list: list):
+def distribution(list: list): # Find the distribution of the list
     d = {}
     for i in list:
         if d.get(i):
@@ -130,11 +130,11 @@ def distribution(list: list):
             d[i] = 1
     return d
 
-def midrange(list: list):
+def midrange(list: list): # Find the midrange
     a = sorted(list)
     return ((a[0] + a[-1]) / 2)
 
-def quartiles(list: list, fancyOut: bool):
+def quartiles(list: list, fancyOut: bool): # Find the quartiles
     from controls import join
     med = median(list)
     length = len(list)
@@ -152,7 +152,7 @@ def quartiles(list: list, fancyOut: bool):
     else:
         return [sort[0], q1, q2, q3, sort[-1]]
 
-def iqr(list: list):
+def iqr(list: list): # Find the interquartile range
     from controls import join
     med = median(list)
     length = len(list)
@@ -166,7 +166,7 @@ def iqr(list: list):
     q3 = median(q3)
     return q3 - q1
 
-def fence(list: list):
+def fence(list: list): # Finds the fence of the list
     a = quartiles(list, False)
     q1 = a[1]
     q3 = a[3]
@@ -175,7 +175,7 @@ def fence(list: list):
     upper = q3 + (i * 1.5)
     return [lower, upper]
 
-def outliers(list: list):
+def outliers(list: list): # Finds the outliers of the list
     from number import isBetween
     from controls import emptyList
     a = fence(list)
@@ -190,7 +190,7 @@ def outliers(list: list):
     else:
         return outliers
 
-def sumOfSquares(list: list):
+def sumOfSquares(list: list): # Finds the sum of squares for the list.
     from controls import emptyList
     if emptyList(list):
         ValueError('Empty list')
@@ -200,7 +200,7 @@ def sumOfSquares(list: list):
         a.append((list[i] - mean) ** 2)
     return sum(a)
 
-def mad(list: list):
+def mad(list: list):# Finds the mean absolute deviation.
     from controls import emptyList
     if emptyList(list):
         ValueError('Empty list')
