@@ -35,7 +35,7 @@ def sign(num: int): # Reports the sign of a number.
     return 1 if num > 1 else 0 if num == 0 else -1
 
 def isNegative(num: int): # Checks if a number is negative.
-    return (self.sign(num) == -1)
+    return (sign(num) == -1)
 
 def isWhole(num: float): # Checks if a number is a whole number.
     return (ceil(num) == num) or (floor(num) == num)
@@ -51,12 +51,12 @@ def divWithRem(num1: int, num2: int): # Divides the numbers and reports the rema
         return str(floor(num1 / num2)) + ' r ' + str(num1 % num2)
 
 def gcf(num1: int, num2: int): # Finds the GCF of 2 numbers.
-    t = Sets()
-    return list(t.setOps(self.factor(num1), self.factor(num2), 'intersection'))[-1]
+    from sets import setOps
+    return list(setOps(self.factor(num1), self.factor(num2), 'intersection'))[-1]
 
 def lcm(num1: int, num2: int): # Finds the LCM of 2 numbers.
-    n = Number()
-    return ((num1 * num2) / (n.gcf(num1, num2)))
+    from number import gcf
+    return ((num1 * num2) / (gcf(num1, num2)))
 
 def tetration(start: int, amount: int): # Tetration function.
     a = start
