@@ -134,7 +134,7 @@ def midrange(list: list): # Find the midrange
     a = sorted(list)
     return ((a[0] + a[-1]) / 2)
 
-def quartiles(list: list, fancyOut: bool): # Find the quartiles
+def quartiles(list: list, fancyOut: bool=False): # Find the quartiles
     from controls import join
     med = median(list)
     length = len(list)
