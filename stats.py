@@ -212,18 +212,18 @@ def mad(list: list):# Finds the mean absolute deviation.
     a = sum(a)
     return a / n
 
-def xlist(low: int, high: int, step: int=1):
+def xlist(low: int, high: int, step: int=1):# Generate x values for a table
     output = []
     for i in range(low, high, step):
         output.append(i)
     return output
 
-def ylist(low: int, high: int, step: int, equation: str):
+def ylist(low: int, high: int, step: int, equation: str):# Generste y value for a function
     output = []
     eqn = lambda x: equation
     for i in range(low, high, step):
         output.append(eqn(i))
     return output
 
-def table(a: list, b: list):
+def table(a: list, b: list):# Formats x and y values to standard form
     return [a, b]
