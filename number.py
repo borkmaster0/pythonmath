@@ -66,7 +66,7 @@ def tetration(start: int, amount: int): # Tetration function.
 
 def logBase(num: float, base: float): # Log with base.
     if (num <= 0) or (base < 0):
-        return 'Error'
+        ValueError("Error")
     return (log(num) / log(base))
 
 def isBetween(num: float, low: float, high: float): # Check if number is between 2 numbers
