@@ -37,4 +37,4 @@ def numList(low: int, high: int): # Create a number list
     list = []
     for i in range(low, high + 1):
         list.append(i)
-    return i
+    return list
