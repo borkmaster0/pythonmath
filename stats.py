@@ -228,9 +228,3 @@ def ylist(low: int, high: int, step: int, equation: str):# Generste y value for 
 def table(a: list, b: list):# Formats x and y values to standard form
     return [a, b]
 
-def eqnTable(eqn: str, var: str, low: int, high: int):# WIP equation table
-    output = []
-    equation = lambda var: eval(str)
-    for eval(var) in range(low, high):
-        output.append(equation(eval(var)))
-    return output
