@@ -6,7 +6,7 @@ from cmath import *
 def max(list: list): # Gets the maximum number for the list.
     from controls import emptyList
     if emptyList(list):
-        return ValueError('Empty list')
+        raise ValueError('Empty list')
     max = list[0]
     for i in list:
         if i > max:
@@ -16,7 +16,7 @@ def max(list: list): # Gets the maximum number for the list.
 def min(list: list): # Gets the minimum number for the list.
     from controls import emptyList
     if emptyList(list):
-        return ValueError('Empty list')
+        raise ValueError('Empty list')
     min = list[0]
     for i in list:
         if min > i:
@@ -26,7 +26,7 @@ def min(list: list): # Gets the minimum number for the list.
 def sum(list: list): # Gets the sum of all the elements in the list.
     from controls import emptyList
     if emptyList(list):
-        return ValueError('Empty list')
+        raise ValueError('Empty list')
     a = 0
     for i in list:
         a += i
@@ -35,7 +35,7 @@ def sum(list: list): # Gets the sum of all the elements in the list.
 def multiply(list: list):# Multiply.
     from controls import emptyList
     if emptyList(list):
-        return ValueError('Empty list')
+        raise ValueError('Empty list')
     a = 1
     for i in list:
         a *= i
@@ -73,7 +73,7 @@ def binDist(x: int, n: int, p: int): # Binomial Distribution
 
 def linReg(xlist: list, ylist: list): # Linear Regression
     if len(xlist) != len(ylist):
-        TypeError("Not equal length")
+        raise TypeError("Not equal length")
     from sets import listMultiply, listExp
 
     n = len(xlist)
@@ -106,7 +106,7 @@ def median(list: list): # Find the median of the list
     from controls import emptyList
     from number import even
     if emptyList(list):
-        return ValueError('Empty list')
+        raise ValueError('Empty list')
     sortedList = sorted(list)
     
     n = len(list)
@@ -193,7 +193,7 @@ def outliers(list: list): # Finds the outliers of the list
 def sumOfSquares(list: list): # Finds the sum of squares for the list.
     from controls import emptyList
     if emptyList(list):
-        ValueError('Empty list')
+        raise ValueError('Empty list')
     mean = average(list)
     a = []
     for i in range(0, len(list)):
@@ -203,7 +203,7 @@ def sumOfSquares(list: list): # Finds the sum of squares for the list.
 def mad(list: list):# Finds the mean absolute deviation.
     from controls import emptyList
     if emptyList(list):
-        ValueError('Empty list')
+        raise ValueError('Empty list')
     n = len(list)
     mean = average(list)
     a = []
