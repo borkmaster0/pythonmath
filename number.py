@@ -44,7 +44,7 @@ def divWithRem(num1: int, num2: int): # Divides the numbers and reports the rema
     if num1 < num2:
         return 0
     if num2 == 0:
-        ZeroDivisionError
+        raise ZeroDivisionError
     if (num1 % num2) == 0:
         return num1 / num2
     else:
@@ -66,7 +66,7 @@ def tetration(start: int, amount: int): # Tetration function.
 
 def logBase(num: float, base: float): # Log with base.
     if (num <= 0) or (base < 0):
-        ValueError("Error")
+        raise ValueError("Error")
     return (log(num) / log(base))
 
 def isBetween(num: float, low: float, high: float): # Check if number is between 2 numbers
