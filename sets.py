@@ -18,7 +18,7 @@ def setOps(set1: list, set2: list, type: str): # Performs set operations (union,
     if type == 'combinations':
         return sorted(list(itertools.product(set1, set2)))
     
-    TypeError("Not a valid operation.")
+    raise TypeError("Not a valid operation.")
 
 def listMultiply(list1: list, list2: list): # Multiply 2 lists together
     output = []
